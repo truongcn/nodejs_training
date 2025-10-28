@@ -23,12 +23,12 @@ export class AppService {
     return this.data;
   }
 
-  findOne() {
-    const result = this.data.find(function (word) {
-      return word.id === 2;
-    });
-
-    return result;
+  findOne(id: number) {
+    const user = this.data.find(u => u.id === id); 
+    if (!user) {
+      return { message: 'User not found' };
+    }
+    return user;
   }
 
   create(data: Data) {
@@ -41,7 +41,7 @@ export class AppService {
     if (!user) return { message: 'User not found' };
 
     Object.assign(user, data);
-    return user;
+    return { message: 'successfully'};
   }
 
   remove(id: number) {
@@ -50,7 +50,7 @@ export class AppService {
       return { message: 'User not found' };
     } else {
       this.data.splice(index, 1);
-      return { message: 'successfully', data: this.data };
+      return { message: 'successfully' };
     }
   }
 }

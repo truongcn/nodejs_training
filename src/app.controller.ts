@@ -22,9 +22,9 @@ export class AppController {
     return this.appService.findAll();
   }
 
-  @Get("id")
-  findOne() {
-    return this.appService.findOne();
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.appService.findOne(+id);
   }
 
   @Post()
@@ -36,8 +36,8 @@ export class AppController {
   update(@Param('id') id: string, @Body() updateUserDto: UpdateDtoData) {
     return this.appService.update(+id, updateUserDto);
   }
-  
-  @Delete(':id') 
+
+  @Delete(':id')
   remove(@Param('id') id: string) {
     return this.appService.remove(+id);
   }
