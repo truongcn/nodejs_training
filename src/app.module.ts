@@ -10,15 +10,14 @@ import { StudentModule } from './student/student.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mssql',
-      host: 'FCA-00055',            // 👈 KHÔNG dùng dấu "\\" ở đây
-      port: 1433,                   // 👈 Port mặc định của SQL Server
+      host: 'FCA-00055',
+      port: 61749,           
       username: 'truongnv',
       password: '123456aaA@',
       database: 'StudentDB',
       options: {
-        encrypt: false,             // 👈 Đặt false để tránh lỗi SSL
+        encrypt: false,
         trustServerCertificate: true,
-        instanceName: 'SQLEXPRESS', // 👈 Thêm dòng này để chỉ định instance
       },
       autoLoadEntities: true,
       synchronize: true,
