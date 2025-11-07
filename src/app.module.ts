@@ -11,7 +11,7 @@ import { StudentModule } from './student/student.module';
     TypeOrmModule.forRoot({
       type: 'mssql',
       host: 'FCA-00055',
-      port: 61749,           
+      port: 61749,            // this is ICP Dynamic Ports 61749, 1433 is default port (but can't setup)
       username: 'truongnv',
       password: '123456aaA@',
       database: 'StudentDB',
