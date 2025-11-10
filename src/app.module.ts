@@ -3,11 +3,15 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { StudentModule } from './student/student.module';
+import { AuthModule } from './auth/auth.module';
+import { ConfigModule } from '@nestjs/config';
 
 
 
 @Module({
   imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+      
     TypeOrmModule.forRoot({
       type: 'mssql',
       host: 'FCA-00055',
@@ -24,6 +28,7 @@ import { StudentModule } from './student/student.module';
     }),
 
     StudentModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
